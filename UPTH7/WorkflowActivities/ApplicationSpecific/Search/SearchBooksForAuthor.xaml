@@ -1,0 +1,364 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="InitAllApplications" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_AuthorName" Type="InArgument(x:String)" />
+    <x:Property Name="out_Books" Type="OutArgument(sd:DataTable)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>1130.4,1882.4</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Excel.Model</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Searches books for an author" DisplayName="Search Books For Author" sap:VirtualizedContainerService.HintSize="664,1817.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GetEmptyBooksDataTable.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="601.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="WorkflowActivities\\ApplicationSpecific\\DataTable\\GetEmptyBooksDataTable.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+          <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">in_Config</mca:CSharpValue>
+        </InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DataTable">
+          <mca:CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">out_Books</mca:CSharpReference>
+        </OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: BookFinder.com: New &amp; Used Books, Rare Books, Textbooks, Out of Print" sap:VirtualizedContainerService.HintSize="601.6,735.2" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="d560f8ea-969f-4d32-91af-1643a1c2a436" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence sap:VirtualizedContainerService.HintSize="462.4,518.4" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence DisplayName="Complete Fields and Search" sap:VirtualizedContainerService.HintSize="400,83.2" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NClick ClickType="Single" DisplayName="Click 'Reset fields'" sap:VirtualizedContainerService.HintSize="337.6,52.8" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d560f8ea-969f-4d32-91af-1643a1c2a436" Version="V1">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://www.bookfinder.com/" DesignTimeRectangle="733, 546, 85, 18" ElementType="Text" FriendlyName="'Reset fields'" FullSelectorArgument="&lt;webctrl parentid='search_form' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='search_form' tag='A' type='' aaname='Reset fields' check:text='Reset fields' /&gt;" Guid="bbb7e24d-2639-449c-a482-bd8c23330c8a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFkAAAAWCAYAAACrBTAWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAIhSURBVFhH7ZbLccIwEEDTky/kRMrxiTIY32gC7pTA0AE3ZmjBPSj6rOT9yRb4k0N0eJOMtFppnxbBV98bU1mXKnkDquQNqJI3oEregCp5A4jke9eYpsnQXs0LxW7Lwxwn9+/NuY3nPZn77RT+qrE6r8thok7Yo3soc3mkZHUTW6Q7/JvJlyJ/rgEv6E2pnD+WbPGdcTDnpzK3Mv9H8vNqWtvNxxsd92vik6Jdgr8cFKPkD4KGmGEP/AQ49EumZ2hMe+lhXyYdakixTJaUzPbvrlJyQX2zOjkUhwqBDZMksUZ2QhCMYkCEFwUxo+cCRCdzySIvnAXlpZLlfLrMeP6C+hyfv8ljnQ05ROGCkBcLdfB1S0hWc7AaiGQh0EE9TNcXkJJdEg12O9kNcHHo48kvY4jlhVj8umF8vmT9MmPnxXEsmQhn8cnFVH3ARCdDUkVmKCpsIMHxcPsJJNWLwHOY5SXr++iSc3v6cdJwI/UBBc8FJGHjoqgi4oFgXa6TGUtJlp1MwZLx/0OM/uYOsPqAsjcZOo4cMiNIPxwCPwXsTUwQQUtIzskJUj59k1XYU+co/OKDObY4jKHCmDRRuIXvEWJwXtl18yVb4GxjeYlkO+AvBs2Hei0guaQ+R7Hk3EchbQzwrgwHwTF0vRYjPtYgyM3lvmAmJTtQHg+rlUp2xO8kQPmdXFIfkVxZhyR5v/9hN1KZw273LSVX1qNKXh1jfgFtjSsVSNTUPAAAAABJRU5ErkJggg==" InformativeScreenshot="5e71892c2bd66502cf8304f8aa8fbd7a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='BookFinder.com: New &amp;amp; Used Books, Rare Books, Textbooks, Out of Print' /&gt;" SearchSteps="FuzzySelector, Image" />
+                </uix:NClick.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NClick>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Author'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="337.6,52.8" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="d560f8ea-969f-4d32-91af-1643a1c2a436" Version="V1">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://www.bookfinder.com/" DesignTimeRectangle="567, 382, 330, 24" ElementType="InputBox" FriendlyName="'INPUT author'" FullSelectorArgument="&lt;webctrl tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' aaname='' /&gt;" Guid="6a92775f-f5e0-45f2-98e6-3da0ee5c0f8b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAU4AAAAcCAYAAAAOYlYhAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAACaSURBVHhe7dQxCsMwAATBvFqv9h8UXMTIRGBvPwNbXX+f45hTkvQ+xylJMccpSbHbcY4xJEmb1q+8jvMcANhbz9NxArzgOAEixwkQOU6AyHECRI4TIHKcAJHjBIgcJ0DkOAEixwkQOU6AyHECRI4TIHKcAJHjBIgcJ0DkOAEixwkQOU6AyHECRNvj/J2nJOm/9StvxylJemrOL2B8XRlbD0UBAAAAAElFTkSuQmCC" InformativeScreenshot="aa8153d5b7db4310ef534ebdf965c65f.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='BookFinder.com: New &amp;amp; Used Books, Rare Books, Textbooks, Out of Print' /&gt;" SearchSteps="FuzzySelector, Image">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="504, 385, 53, 18" ElementType="Text" FriendlyName="'Author'" FullSelectorArgument="&lt;webctrl tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SPAN' type='' aaname='Author' check:text='Author' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADkAAAAWCAYAAAB64jRmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAFVSURBVFhH7ZXNDYMwDEYZsFIlpqk4s0S5dwaYoAP00BW4dAc3lMT5YkyUSKg/KYd3SR3HLzZp9XgQlc4uWQq7ZCn8r2R/qqiqLMcL3ZWYLG4XOkCee1dvlzsBRfJKjRN8UdP5JmMyGNqF0OcluaiWmuMseujGMCaHb5R0ozqJxYrhkT5d/fo0ltOa7T7vBxZ5ec+EPjXB52OQl+7z+cZgzULSjao9TBSNsZtIqrTU8zkjnV3REjhXzQe/h5JutPggf4i8vRTJ11psXA3NIPf6NR8H+aJxkA8IJLXCOYEY2U0kg5z+wZsLTb/gtRodIClfVUk4su+UlN3h/dmSPKoRQOgnO6kWbeEk8ChwPCTmNU0S9qZJ4rmQL/ZNxiWXBwQoieOd1yQt5hJTJXFtATQjTZILgeIC4CnXkru9gzKuBt9hQ5akst+w/j8Z7WTZ7JKl8AeSRE944Qu/eaIrtQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+                <uix:NTypeInto.Text>
+                  <InArgument x:TypeArguments="x:String">
+                    <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_29">in_AuthorName</mca:CSharpValue>
+                  </InArgument>
+                </uix:NTypeInto.Text>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NTypeInto>
+              <uix:NSelectItem DisplayName="Select Language" sap:VirtualizedContainerService.HintSize="337.6,52.8" sap2010:WorkflowViewState.IdRef="NSelectItem_3" Item="Any Language" ScopeIdentifier="d560f8ea-969f-4d32-91af-1643a1c2a436" Version="V1">
+                <uix:NSelectItem.Items>
+                  <scg:List x:TypeArguments="x:String" Capacity="7">
+                    <x:String>Any Language</x:String>
+                    <x:String>Dutch</x:String>
+                    <x:String>English</x:String>
+                    <x:String>French</x:String>
+                    <x:String>German</x:String>
+                    <x:String>Italian</x:String>
+                    <x:String>Spanish</x:String>
+                  </scg:List>
+                </uix:NSelectItem.Items>
+                <uix:NSelectItem.Target>
+                  <uix:TargetAnchorable BrowserURL="https://www.bookfinder.com/" DesignTimeRectangle="685, 449, 121, 20" ElementType="DropDown" FriendlyName="'Any Language'" FullSelectorArgument="&lt;webctrl tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SELECT' type='' aaname='' /&gt;" Guid="bf06c28e-a203-4e59-bf5a-03b603b243ec" InformativeScreenshot="988b08dfae33e3cc13e93a19a866cc11.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='BookFinder.com: New &amp;amp; Used Books, Rare Books, Textbooks, Out of Print' /&gt;" SearchSteps="FuzzySelector">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="567, 440, 480, 37" FriendlyName="'Book is'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;form&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table' parentid='search_form' tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='search_form' tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' aaname=' Book is written in  ' check:text='Book is written in Any LanguageDutchEnglishFrenchGermanItalianSpanish' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NSelectItem.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NSelectItem>
+              <uix:NClick ClickType="Single" DisplayName="Click 'New'" sap:VirtualizedContainerService.HintSize="337.6,52.8" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d560f8ea-969f-4d32-91af-1643a1c2a436" Version="V1">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://www.bookfinder.com/" DesignTimeRectangle="622, 623, 16, 16" ElementType="RadioButton" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl idx='2' tag='INPUT' type='radio' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='' tag='INPUT' type='radio' /&gt;" Guid="b0445c50-04b9-49f5-8dfe-cbad9796b56e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAADjSURBVDhP1ZSxDoMwDET71UwM/ALqhNQVdv6AuWMGNsZujNmvekggSA0lJUstnaKE88W5ONzGUUqJPxbsuqeq6qGiKJRl2TQyZ93iz/gQ7PuXyvKuPM/Vtq2ccxqGYRqZs853eGEu2AhCopKmaeS9lxWs13U98SzRjSA7Qz4TbAp/nQ8WQbzhOHuVhQEPfujpIojheBQT8MkzBfEE42MCPnmmIK3BbcYEfPJMweQVJvcw+S0D+or+OhP062EfgvmlQN6rlHU2hff1pQBI7Mxx8Ajjf37La+ANhlPJpb/NVSQWlN5nisOGBekvfwAAAABJRU5ErkJggg==" InformativeScreenshot="9ce0d0059a360b50e4dca28cf60bcddb.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='BookFinder.com: New &amp;amp; Used Books, Rare Books, Textbooks, Out of Print' /&gt;" SearchSteps="FuzzySelector, Image">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="619, 625, 52, 17" ElementType="Text" FriendlyName="'New'" FullSelectorArgument="&lt;webctrl aaname='New' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='New' tag='LABEL' type='' check:text='New' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADgAAAAVCAYAAAATtC32AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAISSURBVFhH7Ze9bsIwEMf7cHkZGBiZGFjDRjohdYTseQEEaxckhjAxVl0Y2a/++ytnc44CRZCiWjrRnO+c+/nu7PTtdCJ6ZekEuNl80mLxQdPplMbjsf7FM/SSfZ+kFbCuv2g+f6fJZEJVVdF+v6fj8ah/8Qw95mEn+fdBkoAIGpkqy5LO5zNJA/rVaqXt+gqZBERmEHyXgU2AvbTOs0UERG+h/FKZiwfsYN/HnhQBcYCgx64ZsIeftF69HFGWZTRbX86d1oWaK2gb6+8kIiB6CgfJNQP28JPWc4DZoKI6nn8GIK4CnJbXDNjDT1pPAw5GNFSQw+V3OP8yGUT2NMyIygOblwC1TmXcit8UwXabK5t81/geKrWRzTse14O2PHVAvFSjoE05c4gdzTyk+bvpZfPM1+PvwrMIeO9TNHwpD1g9B4DfVA6Ew4jZBBmDPq+Uj8uY8edtIAJCcK/hfusycF+23YPxrpqAbVABoM2IKNYG9nYtrAsYQDcZDlsgCei+ZBB8KpPQYxNg1/YlcwGoxJcqB9T9k7hOnPgeQ7bYJiGrDN7ZJwEhCBqZQfmhx3CQ3PItKgE6mKEKMs4gL7FLsWWYF8rXrQm/gmbxgaOkFdAJegsHCDJ1y38TIqDT8/LzurDM4oPJ+3kYAw1dnP1OgL+VFGATWAPo7TW4lUT2OYzxCdeBPATwmfIP+NflxQGJfgAfDp51TCCNAQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NClick>
+              <uix:NSelectItem DisplayName="Select Item 'Currency'" sap:VirtualizedContainerService.HintSize="337.6,52.8" sap2010:WorkflowViewState.IdRef="NSelectItem_4" Item="Euro" ScopeIdentifier="d560f8ea-969f-4d32-91af-1643a1c2a436" Version="V1">
+                <uix:NSelectItem.Items>
+                  <scg:List x:TypeArguments="x:String" Capacity="38">
+                    <x:String>Argentine Peso</x:String>
+                    <x:String>Australian Dollar</x:String>
+                    <x:String>Bahamian Dollar</x:String>
+                    <x:String>Brazilian Real</x:String>
+                    <x:String>British Pound</x:String>
+                    <x:String>Canadian Dollar</x:String>
+                    <x:String>Chilean Peso</x:String>
+                    <x:String>Chinese Yuan Renminbi</x:String>
+                    <x:String>Czech Koruna</x:String>
+                    <x:String>Danish Krone</x:String>
+                    <x:String>East Caribbean Dollar</x:String>
+                    <x:String>Euro</x:String>
+                    <x:String>Fiji Dollar</x:String>
+                    <x:String>Hong Kong Dollar</x:String>
+                    <x:String>Hungarian Forint</x:String>
+                    <x:String>Icelandic Krona</x:String>
+                    <x:String>Indian Rupee</x:String>
+                    <x:String>Indonesian Rupiah</x:String>
+                    <x:String>Israeli New Sheqel</x:String>
+                    <x:String>Jamaican Dollar</x:String>
+                    <x:String>Japanese Yen</x:String>
+                    <x:String>Malaysian Ringgit</x:String>
+                    <x:String>Mexican Peso</x:String>
+                    <x:String>New Zealand Dollar</x:String>
+                    <x:String>Norwegian Krone</x:String>
+                    <x:String>Pakistani Rupee</x:String>
+                    <x:String>Philippine Peso</x:String>
+                    <x:String>Polish Zloty</x:String>
+                    <x:String>Russian Rouble</x:String>
+                    <x:String>Singapore Dollar</x:String>
+                    <x:String>South African Rand</x:String>
+                    <x:String>South Korean Won</x:String>
+                    <x:String>Swedish Krona</x:String>
+                    <x:String>Swiss Franc</x:String>
+                    <x:String>Taiwan Dollar</x:String>
+                    <x:String>Thai Baht</x:String>
+                    <x:String>US Dollar</x:String>
+                    <x:String>Venezuelan Bolivar Fuerte</x:String>
+                  </scg:List>
+                </uix:NSelectItem.Items>
+                <uix:NSelectItem.Target>
+                  <uix:TargetAnchorable BrowserURL="https://www.bookfinder.com/" DesignTimeRectangle="567, 734, 195, 20" ElementType="DropDown" FriendlyName="'Euro'" FullSelectorArgument="&lt;webctrl id='currency' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='currency' tag='SELECT' type='' aaname='' /&gt;" Guid="85cf7101-77df-405d-bd4d-168b62846a2c" InformativeScreenshot="00a27393848a012dbd2d2d77c23893d9.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='BookFinder.com: New &amp;amp; Used Books, Rare Books, Textbooks, Out of Print' /&gt;" SearchSteps="FuzzySelector">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="496, 735, 61, 17" ElementType="Text" FriendlyName="'Currency'" FullSelectorArgument="&lt;webctrl aaname='Currency' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Currency' tag='SPAN' type='' check:text='Currency' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEEAAAAVCAYAAAAZ6IOkAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAGPSURBVFhH7ZbNzcIwDIYZrsvAgT3gyAwV9y6AxATcYAQu7GASO2nt2GlSie/wtTm8QiSOf57YUXefD8DW1SA4NQhODYJTg+DUIDjZEF4DHLoOOqbzzbBbiRSE+8kXfYTri60HKIf+LWzXIgnhdtEAavb+uQQE7ILTQxjYesBZjYhce/ZH52uA657GyXeRtYZn0/ETOUS/9Btt0q5E38Y+1rQf4JnasjUG4Y3J1bV8JYTExlrTHUZ5TCBi8Re4Z86QX+YjQMU4Gf+8TgVBFpZTLQSWeGbN35QCj0XExMmvtOGxSpeXnBe+SX/bCYU2HG/dndOSEPKxrH0pPhJWXgveBN4pv4JAZ+bBl2JZ+4nG27cvWkCwWmWUmC0jMJ9D939RJ8w+xiUINR0cLrC365MQnLAbUsNQ4BQoJM8KonNLITghXFkk2o1vRwlCau+lwZCNzDlKQUCFxLhkEl6UyLRvJFYDwUvF4wWVIXiNRQapzlAXOcmGsEbNjPpmIGCnZN6eDUCIYyu/T7i2Mw5ZAXwBT1Qi0tYU1cQAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NSelectItem.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NSelectItem>
+              <uix:NClick ClickType="Single" DisplayName="Click 'Search'" sap:VirtualizedContainerService.HintSize="337.6,52.8" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d560f8ea-969f-4d32-91af-1643a1c2a436" Version="V1">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://www.bookfinder.com/" DesignTimeRectangle="570, 547, 150, 39" ElementType="Button" FriendlyName="'Search'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='submit' aaname='Search' check:text='Search' /&gt;" Guid="e0a84de1-c962-463d-8f9a-7d4388c53a12" ImageBase64="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" InformativeScreenshot="1bb2c6878a3a8410b257d36c08d32be5.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='BookFinder.com: New &amp;amp; Used Books, Rare Books, Textbooks, Out of Print' /&gt;" SearchSteps="FuzzySelector, Image" />
+                </uix:NClick.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NClick>
+            </Sequence>
+            <uix:NExtractData ContinueOnError="True" DisplayName="Extract Search Results Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='Book Title'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column1' Name='Book Url'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;true&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Column0' attr='text' name2='Column1' attr2='href'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='span' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="400,157.6" sap2010:WorkflowViewState.IdRef="NExtractData_2" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="d560f8ea-969f-4d32-91af-1643a1c2a436" Timeout="10" Version="V1">
+              <uix:NExtractData.DataTable>
+                <InOutArgument x:TypeArguments="sd:DataTable">
+                  <mca:CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">out_Books</mca:CSharpReference>
+                </InOutArgument>
+              </uix:NExtractData.DataTable>
+              <uix:NExtractData.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="70, 394, 1825, 978" DesignTimeScaleFactor="1.25" ElementType="List" FriendlyName="'UL'" FullSelectorArgument="&lt;webctrl tag='UL' /&gt;" Guid="e2d26da4-a5cd-4ac7-ab09-9b0bae18f1af" InformativeScreenshot="53fab6a69530894a68dfdb711904dc7b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='BookFinder.com: Search Results (Matching Titles)' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+              </uix:NExtractData.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NExtractData>
+            <uix:NGoToUrl DisplayName="Go To URL" sap:VirtualizedContainerService.HintSize="400,82.4" sap2010:WorkflowViewState.IdRef="NGoToUrl_3" Version="V3">
+              <uix:NGoToUrl.Url>
+                <InArgument x:TypeArguments="x:String">
+                  <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_30">in_Config["BookFinderUrl"].ToString()</mca:CSharpValue>
+                </InArgument>
+              </uix:NGoToUrl.Url>
+            </uix:NGoToUrl>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-9, -9, 1938, 1048" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="46d9326754772a87ac2c27283146957d.png" Selector="&lt;html app='chrome.exe' title='BookFinder.com: New &amp;amp; Used Books, Rare Books, Textbooks, Out of Print'/&gt;">
+          <uix:TargetApp.Url>
+            <InArgument x:TypeArguments="x:String">
+              <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_31">in_Config["BookFinderUrl"].ToString()</mca:CSharpValue>
+            </InArgument>
+          </uix:TargetApp.Url>
+        </uix:TargetApp>
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+    <If sap:VirtualizedContainerService.HintSize="601.6,459.2" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Condition>
+        <InArgument x:TypeArguments="x:Boolean">
+          <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">out_Books.RowCount() == 0</mca:CSharpValue>
+        </InArgument>
+      </If.Condition>
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="400,269.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="337.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Warn">
+            <ui:LogMessage.Message>
+              <InArgument x:TypeArguments="x:Object">
+                <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">"No books found for author "+in_AuthorName</mca:CSharpValue>
+              </InArgument>
+            </ui:LogMessage.Message>
+          </ui:LogMessage>
+          <Throw sap:VirtualizedContainerService.HintSize="337.6,24.8" sap2010:WorkflowViewState.IdRef="Throw_1">
+            <InArgument x:TypeArguments="s:Exception">
+              <mca:CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">new BusinessRuleException("No books were found for author "+in_AuthorName)</mca:CSharpValue>
+            </InArgument>
+          </Throw>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="496,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
+      <ui:LogMessage.Message>
+        <InArgument x:TypeArguments="x:Object">
+          <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">"The following books were found for author "+in_AuthorName</mca:CSharpValue>
+        </InArgument>
+      </ui:LogMessage.Message>
+    </ui:LogMessage>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="LogDataTable.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="496,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="WorkflowActivities\\Utils\\LogDataTable.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DataTable">
+          <mca:CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">out_Books</mca:CSharpValue>
+        </InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+  </Sequence>
+</Activity>

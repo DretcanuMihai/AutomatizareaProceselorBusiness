@@ -1,0 +1,1 @@
+input un autor de carte sa zic, si pe baza lui sa se creeze o lista de posibile recomandari ale autorului respectiv ( alte titluri de carte - eventual de unde sa le cumperi, pret , etc)
